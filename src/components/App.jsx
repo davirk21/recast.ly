@@ -1,14 +1,25 @@
 class App extends React.Component {
+//constructor 
   constructor (props) {
     super(props);
+//state
     this.state = {
-      blank : false,
-      videos: exampleVideoData
+      isSelected: false,
+      videos: exampleVideoData,
+      video : exampleVideoData[0]
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
+  handleClick(e) {
+    console.log('was clicked',e);
+  }
+
+
+
+
   render() {
-  console.log("App", this.props)
+    console.log( "App", this.props);
     return (
       <div>
       <nav className="navbar">
@@ -18,10 +29,10 @@ class App extends React.Component {
       </nav>
       <div className="row">
         <div className="col-md-7">
-         <VideoPlayer video = {this.state.videos[0]}/>
+         <VideoPlayer video = {this.state.video}/>
         </div>
         <div className="col-md-5">
-          <VideoList videos = {this.state.videos}/>
+          <VideoList videos = {this.state.videos} vleHandler = {this.handleClick} />
         </div>
       </div>
     </div>
@@ -41,4 +52,10 @@ window.App = App;
 //App is not properly being fed a prop value 
 
 // <VideoPlayer /> line 10
+
+//handeClick func in app
+//pass handle click to viewList
+//pass handle click to videoListEntry
+//in VLE, invoke handle func so that its waiting to be clicked 
+//and output data to viewList
 

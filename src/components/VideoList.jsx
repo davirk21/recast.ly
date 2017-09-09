@@ -1,6 +1,7 @@
 var VideoList = (props) => (
   <div className="video-list">
-    {props.videos.map((el, index) => <VideoListEntry video = {el} key = {index} /> )}
+
+    {props.videos.map((el, index) => <VideoListEntry video = {el} key = {index} vleHandler = {props.vleHandler} /> )}
   </div>
 );
 
@@ -12,7 +13,8 @@ var VideoList = (props) => (
 //   render() {
   
 //     return (
-  
+      //{console.log('click func', props.vleHandler)}
+
 //     <div className="video-list">
     
 
