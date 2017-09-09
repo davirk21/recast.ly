@@ -2,10 +2,13 @@ class App extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      
+      blank : false,
+      videos: exampleVideoData
     };
   }
+
   render() {
+  console.log("App", this.props)
     return (
       <div>
       <nav className="navbar">
@@ -15,10 +18,10 @@ class App extends React.Component {
       </nav>
       <div className="row">
         <div className="col-md-7">
-         <VideoPlayer video = {this.props[0]}/>
+         <VideoPlayer video = {this.state.videos[0]}/>
         </div>
         <div className="col-md-5">
-          <VideoList videos = {this.props}/>
+          <VideoList videos = {this.state.videos}/>
         </div>
       </div>
     </div>
