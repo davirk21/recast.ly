@@ -1,20 +1,30 @@
-var App = () => (
-  <div>
-    <nav className="navbar">
-      <div className="col-md-6 offset-md-3">
-        <Search/>
-      </div>
-    </nav>
-    <div className="row">
-      <div className="col-md-7">
-       <VideoPlayer video  = {exampleVideoData[0]}/>
-      </div>
-      <div className="col-md-5">
-        <VideoList videos = {exampleVideoData}/>
+class App extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      
+    };
+  }
+  render() {
+    return (
+      <div>
+      <nav className="navbar">
+        <div className="col-md-6 offset-md-3">
+          <Search/>
+        </div>
+      </nav>
+      <div className="row">
+        <div className="col-md-7">
+         <VideoPlayer video = {this.props[0]}/>
+        </div>
+        <div className="col-md-5">
+          <VideoList videos = {this.props}/>
+        </div>
       </div>
     </div>
-  </div>
-);
+    );
+  }
+}
 
 
 // ReactDOM.render(<VideoListEntry/>, document.getElementById('video-list'));
