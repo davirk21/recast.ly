@@ -5,26 +5,51 @@ class App extends React.Component {
 //state
     this.state = {
       isSelected: false,
-      videos: exampleVideoData,
-      video : exampleVideoData[0]
+      videos: window.exampleVideoData,
+      video: window.exampleVideoData[0],
+     
     };
     this.handleClick = this.handleClick.bind(this);
   }
+  
+  
+  componentDidMount () {
+    this.getYouTubeVideos('bball');
+  }
+  
 
-  handleClick(e) {
-    console.log('was clicked',e);
+  getYouTubeVideos(query) {
+    var options = {
+      key: this.props.API_KEY,
+      query: query,
+    };
+    
+    this.props.searchYouTube(options, (videos) => {
+      this.setState({
+        videos: videos,
+        video: videos[0]
+      });
+    });
+     
   }
 
+  handleClick(e) {
+    console.log('was clicked', e);
+    
+    this.setState({video:e});
+  }
+
+ 
+  
 
 
 
   render() {
-    console.log( "App", this.props);
     return (
       <div>
       <nav className="navbar">
         <div className="col-md-6 offset-md-3">
-          <Search/>
+          <Search handleSearchInputChange = {this.getYouTubeVideos.bind(this)}/>
         </div>
       </nav>
       <div className="row">
@@ -45,8 +70,7 @@ class App extends React.Component {
 // In the ES6 spec, files are "modules" and do not share a top-level scope
 // `var` declarations will only exist globally where explicitly defined
 window.App = App;
-//console.log('obj',exampleVideoData)
-//console.log('snip',exampleVideoData[0].snippet)
+
 
 //the props in videolist is not recognizing the data that was pass in the App function
 //App is not properly being fed a prop value 

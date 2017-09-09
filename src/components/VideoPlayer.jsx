@@ -5,7 +5,7 @@ var VideoPlayer = (props) => (
       <iframe className="embed-responsive-item" src= {`https://www.youtube.com/embed/${props.video.id.videoId}`} allowFullScreen></iframe>
     </div>
     <div className="video-player-details">
-      <h3>{console.log('gg', props.video), props.video.snippet.title}</h3>
+      <h3>{props.video.snippet.title}</h3>
       <div>{props.video.snippet.description}</div>
     </div>
   </div>

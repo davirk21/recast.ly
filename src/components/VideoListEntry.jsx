@@ -6,8 +6,8 @@ var VideoListEntry = (props) => {
   return (
     <div className="video-list-entry media" onClick = { function() {
       // console.log("vle",props.video);
-      props.vleHandler(props.video)
-      }
+      props.vleHandler(props.video);
+          }
       }>
 
     <div className="media-left media-middle">

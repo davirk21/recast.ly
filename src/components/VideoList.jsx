@@ -8,12 +8,10 @@ var VideoList = (props) => (
 // class VideoList extends React.component { 
 //   constuctor(props) { 
 //     super(props);
-//   console.log('2'this.props)
 //   }
 //   render() {
   
 //     return (
-      //{console.log('click func', props.vleHandler)}
 
 //     <div className="video-list">
     
@@ -37,6 +35,5 @@ VideoList.propTypes = {
 // In the ES6 spec, files are "modules" and do not share a top-level scope.
 // `var` declarations will only exist globally where explicitly defined.
 window.VideoList = VideoList;
-//console.log(exampleVideoData)
 
 //
