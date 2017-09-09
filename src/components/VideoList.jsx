@@ -1,7 +1,6 @@
 var VideoList = (props) => (
   <div className="video-list">
-    { console.log('this', props) }
-    {props.videos.map(el => <VideoListEntry vid = {el.snippet}/> )}
+    {props.videos.map((el, index) => <VideoListEntry video = {el} key = {index} /> )}
   </div>
 );
 
@@ -16,11 +15,10 @@ var VideoList = (props) => (
   
 //     <div className="video-list">
     
-    
+
 //     </div>
 //     );
 //   }
-    
 // }
 
 
